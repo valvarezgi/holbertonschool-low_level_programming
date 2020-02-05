@@ -1,1 +1,1 @@
-his project is about C basics
+This project is about C basics
