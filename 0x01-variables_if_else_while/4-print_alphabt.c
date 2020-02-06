@@ -19,6 +19,6 @@ if (lc != e && lc != q)
 putchar(lc);
 }
 
-printf("\n");
+putchar('\n');
 return (0);
 }
