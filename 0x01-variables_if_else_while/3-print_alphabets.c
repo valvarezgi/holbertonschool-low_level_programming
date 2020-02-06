@@ -14,7 +14,7 @@ for (lc = 'a'; lc <= 'z'; lc++)
 putchar(lc);
 for (lc = 'A'; lc <= 'Z'; lc++)
 putchar (lc);
- putchar('\n');
+putchar('\n');
 
 return (0);
 }
