@@ -3,7 +3,11 @@
 /**
  *_abs - function that computes the absolute value of a integer
  *
+ * @a: it's a value
+ *
+ * Return: the value of an integer
  */
+
 int _abs(int a)
 {
 	if (a >= 0)
@@ -12,6 +16,6 @@ int _abs(int a)
 	}
 	else
 	{
-		return (0 -a);
+		return (0 - a);
 	}
 }
