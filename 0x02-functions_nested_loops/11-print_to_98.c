@@ -28,7 +28,7 @@ void print_to_98(int n)
 		}
 		else
 		{
-			a != ? _putchar('-') : a;
+			a != n ? _putchar('-') : a;
 			_putchar(d + '0');
 		}
 		_putchar(',');
