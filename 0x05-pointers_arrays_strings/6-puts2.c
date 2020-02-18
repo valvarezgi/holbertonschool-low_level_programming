@@ -1,13 +1,16 @@
 #include "holberton.h"
 
-Coments
+/**
+ * puts2 - prints every other character of a string
+ * @str: is the direction of a string
+ */
 
 void puts2(char *str)
 {
-  int c; 
+	int c;
 
-  for (c = 0; str [c] != 0; c++)
-    if (c % 2 == 0)
-      _putchar( str[c];
-		_putchar('\n');
+	for (c = 0; str[c] != 0; c++)
+		if (c % 2 == 0)
+			_putchar(str[c]);
+					_putchar('\n');
 }
