@@ -13,12 +13,9 @@ int temporal;
 
 i = 0;
 n = n - 1;
+
 while(i <= n)
 {
-temporal = a[i];
-a[i] = a[n];
-a[n] = temporal;
-i++;
-n--;
-}
+	       n++;
+	}
 }
