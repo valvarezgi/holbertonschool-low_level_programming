@@ -2,7 +2,7 @@
 /**
  * _sqrt_recursion - functions that returns the natural square root of a number
  * @n: number to evaluate
- * Returns: -1 if n doesn't have square root, otherwise returns the base
+ * Return: -1 if n doesn't have square root, otherwise returns the base
  */
 
 int _sqrt_recursion(int n)
@@ -12,14 +12,14 @@ int _sqrt_recursion(int n)
 	if (n == 0)
 		return (n);
 
-	return (findSquare(n,1));
+	return (findSquare(n, 1));
 }
 
 /**
  * findSquare - Find the natural square root of a number
  * @n: number to determinate root
  * @i: number to find the base
- * Returns: -1 if the square root doesn't exist, otherwise, returns the root
+ * Return: -1 if the square root doesn't exist, otherwise, returns the root
  */
 
 int findSquare(int n, int i)
@@ -28,5 +28,6 @@ int findSquare(int n, int i)
 		return (-1);
 	if (i * i == n)
 		return (i);
-	else return (findSquare(n, i + 1));
+	else
+		return (findSquare(n, i + 1));
 }
