@@ -18,5 +18,5 @@ char *create_array(unsigned int size, char c)
 	for (i = 0; i < size; i++)
 		ps[i] = c;
 	ps[i] = 0;
-	return (size < 1 ? 0 : ps);
+	return (size <= 1 ? 0 : ps);
 }
