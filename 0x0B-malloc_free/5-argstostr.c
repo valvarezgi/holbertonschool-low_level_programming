@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * argstostr - function that concatenates all the arguments of a program
  * @ac: argument counter
@@ -10,30 +10,38 @@
 
 char *argstostr(int ac, char **av)
 {
-	int i, j, length, buflen;
-		char *p;
+	int i, j, counter;
+	char *p, *start;
 
-	if (ac == 0)
-		return (NULL);
-	if (av == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	i = j = length = buflen = 0;
-	for(i = 0; av[i]; i++)
+	for(i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j]; j++)
-			length++;
+		j = 0;
+		while (av[i][j] != '\0')
+		{
+			j++;
+			counter++;
+		}
+		counter++;
 	}
-	p = (char *)malloc(length * sizeof(char) + ac + 1);
-		if (p == NULL)
-			return(NULL);
-	for (i = 0; av[i]; i++)
+	counter++;
+	p = malloc(sizeof(char) * counter);
+	if (p == NULL)
+		return (NULL);
+	start = p;
+	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j]; j++, buflen++)
-			p[buflen] = av[i][j];
-		p[buflen] = '\n';
-		buflen++;
+		j = 0;
+		while(av[i][j] != '\0')
+		{
+			*p = av[i][j];
+			j++;
+			p++;
+		}
+		*p = '\n';
+		p++;
 	}
-	p[buflen] = '\0';
-	return(p);
+	return(start);
 }
