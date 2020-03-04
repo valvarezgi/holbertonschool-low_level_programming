@@ -14,8 +14,8 @@ char *_strdup(char *str)
 	char *pstr;
 	unsigned int i = 0;
 
-	if (str == 0)
-		return (0);
+	if (str == NULL)
+		return (NULL);
 
 	while (str[i] != 0)
 		i++;
