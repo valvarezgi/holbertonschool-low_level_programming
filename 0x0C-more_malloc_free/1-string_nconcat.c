@@ -3,9 +3,10 @@
 #include <stdlib.h>
 
 /**
- * str_concat - function that concatenates two strings
+ * string_nconcat - function that concatenates two strings
  * @s1 : string 1
  * @s2 : string 2
+ * @n: number of bytes
  * Return: concatenated strings
  */
 
@@ -24,7 +25,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	length2 = 0;
 	while (s2[length2] != 0)
 		length2++;
-	if (n >= length2)  
+	if (n >= length2)
 		n = length2;
 	p = malloc(sizeof(char) * (length1 + n + 1));
 	if (p == NULL)
