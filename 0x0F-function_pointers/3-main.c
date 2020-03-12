@@ -14,13 +14,13 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 		return(98);
-}
+	}
 	if ((*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*'
 	     && *argv[2] != '/' && *argv[2] != '%') || argv[2][1] != 0)
 	{
 		printf("Error\n");
 		return(99);
-}
+	}
 	if (atoi(argv[3]) == 0 && (*argv[2] == '/' || *argv[2] == '%'))
 	{
 		printf("Error\n");
