@@ -1,90 +1,90 @@
-#include <stdarg.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include "variadic_functions.h"
+
 /**
- * _character - prints character
- * @ap: arguments
- * Return: void
+ * print_char - prints a char
+ * @ap: list of arguments
+ * Return: none
  */
-void _character(va_list ap)
+void print_char(va_list ap)
 {
 	printf("%c", va_arg(ap, int));
 }
+
 /**
- * _integer - prints integer
- * @ap: arguments
- * Return: void
+ * print_float - prints a float integer
+ * @ap: list of arguments
+ * Return: none
  */
-void _integer(va_list ap)
-{
-	printf("%d", va_arg(ap, int));
-}
-/**
- * _float - prints float
- * @ap: arguments
- * Return: void
- */
-void _float(va_list ap)
+void print_float(va_list ap)
 {
 	printf("%f", va_arg(ap, double));
 }
-/**
- * _string - prints string
- * @ap: arguments
- * Return: void
- */
-void _string(va_list ap)
-{
-	char *str;
 
-	str = va_arg(ap, char *);
-	if (str == 0)
-	{
-		str = "(nil)";
-	}
-	printf("%s", str);
+/**
+ * print_int - prints an int
+ * @ap: list of arguments
+ * Return: none
+ */
+void  print_int(va_list ap)
+{
+	printf("%d", va_arg(ap, int));
 }
 
 /**
- * print_all - prints anything
- * @format: is a list of types of arguments
- * @...:  arguments
- * Return: void
+ * print_string - prints a string
+ * @ap: list of arguments
+ * Return: none
  */
+void print_string(va_list ap)
+{
+	char *ptr_string;
 
+	ptr_string = (va_arg(ap, char*));
+	if (ptr_string == NULL)
+	{
+		ptr_string = "(nil)";
+	}
+	printf("%s", ptr_string);
+}
+/**
+ * print_all - prints everything
+ * @format: list of args passed to function
+ * Return: none
+ */
 void print_all(const char * const format, ...)
 {
-	int i, j;
-	va_list valist;
-	tsel tselec[] = {
-		{"c", _character},
-		{"i", _integer},
-		{"f", _float},
-		{"s", _string},
-		{0, 0}
+
+	op_t fmt[] = {
+		{"c", print_char},
+		{"i", print_int},
+		{"f", print_float},
+		{"s", print_string},
+		{NULL, NULL}
 	};
-	char *str1 = "", *str2 = ", ";
 
+	va_list ap;
+	int i, j;
+	char *separator = "";
+
+	va_start(ap, format);
 	i = 0;
-
-	va_start(valist, format);
-	while (format != 0 && format[i] != 0)
+	while (format[i] != '\0')
 	{
 		j = 0;
-
-		while (tselec[j].select != 0)
-
+		while (fmt[j].op != NULL)
 		{
-			if (tselec[j].select[0] == format[i])
+			if (format[i] == fmt[j].op[0])
 			{
-				printf("%s", str1);
-				tselec[j].func(valist);
-				str1 = str2;
+				printf("%s", separator);
+				fmt[j].f(ap);
+				separator = ", ";
 			}
 			j++;
 		}
 		i++;
 	}
+	va_end(ap);
 	printf("\n");
-	va_end(valist);
 }

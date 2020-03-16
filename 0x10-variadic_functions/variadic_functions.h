@@ -13,10 +13,10 @@ void print_all(const char * const format, ...);
  * @fun: function
  */
 
-typedef struct typeSelection
+typedef struct op
 {
-	char *select;
-	void (*func)();
-} tsel;
+	char *op;
+	void (*f)();
+} op_t;
 
 #endif
