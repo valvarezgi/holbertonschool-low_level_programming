@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -11,11 +10,11 @@ size_t print_list(const list_t *h)
 {
 	size_t i;
 
-	for (i = 0; i != NULL; i++)
+	for (i = 0; h != 0; i++)
 	{
 		if (h->str == NULL)
 		{
-			printf("[%d] %s", 0, "(nil)");
+			printf("[%d] %s\n", 0, "(nil)");
 		}
 		else
 		{
