@@ -11,7 +11,7 @@ void free_listint2(listint_t **head)
 	listint_t *aux, *aux2;
 
 	aux2 = *head;
-	while (head != 0 && aux2 != 0)
+	while (head != NULL && aux2 != NULL)
 	{
 		aux = aux2;
 		aux2 = aux2->next;
